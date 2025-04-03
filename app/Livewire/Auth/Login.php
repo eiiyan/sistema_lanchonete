@@ -29,10 +29,11 @@ class Login extends Component
     {
         $this->validate();
 
+    
         if (Auth::attempt(['email' => $this->email, 'password' => $this->password])) { //verifica se a tentaiva de login foi real ou falsa
             session()->regenerate(); //cria uma seção ativa 
-            return redirect()->route(Auth::user()->role === 'admin' ? //redireciona a rota, ?(autentica) e : senão(else)
-                'admin.dashboard' :  'user.dashboard'); //a função Auth::user traz o usuário logado
+            return redirect()->route(Auth::user()->role === 'cliente' ? //redireciona a rota, ?(autentica) e : senão(else)
+                'cliente.dashboard' :  'user.dashboard'); //a função Auth::user traz o usuário logado
         }
 
         session()->flash('error', 'Email ou senha incorretos'); //colocar a mensagem

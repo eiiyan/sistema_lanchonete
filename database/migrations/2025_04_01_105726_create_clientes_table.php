@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nome', 80)->nullable(false);
             $table->string('endereco', 80)->nullable(false);
             $table->string('telefone', 80)->nullable(false);
-            $table->string('cpf', 80)->nullable(false)->unique(true);
+            $table->string('cpf', 11)->nullable(false)->unique(true);
             $table->string('email', 80)->nullable(false)->unique(true);
             $table->string('password', 255)->nullable(false);
             $table->timestamps();
